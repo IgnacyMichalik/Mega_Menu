@@ -1,0 +1,91 @@
+@use 'variables' as *;
+body{background: yellowgreen
+}
+
+
+.main{
+  width: 100%;
+  height: 100px;
+  background: mediumslateblue;
+
+  >ul{
+    display: flex;
+    justify-content: center;
+
+    li{
+      position: relative;
+
+      a{
+        display: block;
+        color: white;
+        width: 200px;
+        height: 100px;
+        text-align: center;
+        padding: 45px 15px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        transition: all 0.7s ease;
+      }
+
+      a:hover, a.active{
+        background: orange;
+      }
+
+      a.first_parent.active + .menu{
+        display: block;
+      }
+
+      a.secound_parent_a.active + .secound_menu{
+        display: block;
+      }
+
+    }
+  }
+}
+
+
+.main .secound_menu:before{
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -30px;
+  transform: translateX(-50%);
+  z-index: 1;
+  border: 15px solid;
+  border-color: transparent darkcyan transparent transparent;
+}
+.main .menu{
+  position: absolute;
+  top: 100px;
+  left: 0;
+  display: none;
+
+  a{
+    width: 180px;
+    background: orangered;
+    text-align: left;
+    padding: 20px 18px;
+  }
+}
+
+.main .menu:before{
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  border: 15px solid;
+  border-color: transparent transparent darkcyan transparent;
+}
+
+.secound_menu{
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  display: none;
+}
+
+
+
